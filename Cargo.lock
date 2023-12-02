@@ -3,5 +3,9 @@
 version = 3
 
 [[package]]
+name = "cube-conundrum-2"
+version = "0.1.0"
+
+[[package]]
 name = "trebuchet-1"
 version = "0.1.0"
