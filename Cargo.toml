@@ -1,5 +1,7 @@
 [workspace]
 resolver = "2"
-members = [ "cube-conundrum-2",
-    "trebuchet-1"
+members = [
+    "trebuchet-1",
+    "cube-conundrum-2",
+    "gear-ratios-3"
 ]
