@@ -1,6 +1,4 @@
-use std::collections::HashSet;
-use std::ops::{Add, Index};
-use std::str::Lines;
+use std::ops::Add;
 use regex::Regex;
 
 const INPUT_FILE: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/input.txt");
