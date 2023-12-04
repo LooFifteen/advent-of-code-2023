@@ -9,7 +9,8 @@ fn main() {
     let input = std::fs::read_to_string(INPUT_FILE).unwrap();
 
     // initialize sum
-    let mut sum = 0;
+    let mut part_1 = 0;
+    let mut part_2 = 0;
 
     // iterate through each line
     let lines: Vec<&str> = input.lines().into_iter().collect();
@@ -19,31 +20,15 @@ fn main() {
 
         // find all numbers in the current line
         let numbers = find_numbers(line);
-
         // check each number to see if it has a symbol
         for number in numbers {
             if number.has_symbol(previous_line, line, next_line) {
-                sum += number.value;
+                part_1 += number.value;
             }
         }
-    }
-
-    // output the sum
-    println!("Part 1: {}", sum);
-
-    // part 2
-
-    // initialise sum
-    let mut sum = 0;
-
-    // iterate through each line
-    for i in 0..lines.len() {
-        // store the useful lines
-        let (previous_line, line, next_line) = get_surrounding_lines(lines.clone(), i);
 
         // find all gears in the current line
         let gears = find_gears(line);
-
         // check each gear to see if it has a symbol
         for gear in gears {
             let numbers = gear.find_numbers(previous_line, line, next_line);
@@ -51,12 +36,13 @@ fn main() {
                 continue;
             }
             let product = numbers.iter().fold(1, |acc, number| acc * number.value);
-            sum += product;
+            part_2 += product;
         }
     }
 
-    // output the sum
-    println!("Part 2: {}", sum);
+    // output the sums
+    println!("Part 1: {}", part_1);
+    println!("Part 2: {}", part_2);
 }
 
 fn get_surrounding_lines(lines: Vec<&str>, index: usize) -> (Option<&str>, &str, Option<&str>) {
